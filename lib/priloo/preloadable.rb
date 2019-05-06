@@ -38,7 +38,7 @@ module Priloo
             def call(instance, *)
                 return preloader.extract(instance) if preloader.injected?(instance)
 
-                preloader.preload([instance].bm_preload(*decorator_args, **decorator_kwargs)).first
+                preloader.preload([instance].priload(*decorator_args, **decorator_kwargs)).first
             end
 
             private
