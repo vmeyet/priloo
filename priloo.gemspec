@@ -23,6 +23,6 @@ Gem::Specification.new do |gem|
     gem.add_development_dependency 'rubocop', '0.59.2'
     gem.add_development_dependency 'sqlite3', '~> 1.3'
 
-    gem.add_dependency 'activerecord', '~> 5.2.1'
+    gem.add_dependency 'activerecord', '~> 6.0'
     gem.add_dependency 'decors', '~> 0.3'
 end
