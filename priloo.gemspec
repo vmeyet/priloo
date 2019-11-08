@@ -17,7 +17,6 @@ Gem::Specification.new do |gem|
     gem.test_files    = []
     gem.require_paths = ['lib']
 
-    gem.add_development_dependency 'bm-typed', '~> 0.1'
     gem.add_development_dependency 'coveralls', '~> 0.8'
     gem.add_development_dependency 'pry', '~> 0'
     gem.add_development_dependency 'rspec', '~> 3'

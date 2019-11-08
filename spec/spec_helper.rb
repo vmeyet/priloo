@@ -8,7 +8,6 @@ end
 ENV['RAILS_ENV'] = 'test'
 
 require 'priloo'
-require 'typed'
 require 'active_record'
 
 ActiveRecord::Base.configurations['test'] = {

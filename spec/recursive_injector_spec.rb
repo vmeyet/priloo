@@ -27,9 +27,10 @@ describe Priloo::RecursiveInjector do
         end
     end
 
-    class BaseTestPreloader < Typed::Struct
-        attribute :name
-        attribute :dependencies, Typed.default([])
+    BaseTestPreloader = Struct.new(:name, :dependencies, keyword_init: true) do
+        def initialize(name:, dependencies: [])
+            super(name: name, dependencies: dependencies)
+        end
 
         def merge_key
             [name, dependencies]
@@ -49,10 +50,10 @@ describe Priloo::RecursiveInjector do
         end
     end
 
-    class TestObject < Typed::Struct
-        attribute :parent
-        attribute :name
-        attribute :dependencies, Typed.default([])
+    TestObject = Struct.new(:parent, :name, :dependencies, keyword_init: true) do
+        def initialize(parent:, name:, dependencies: [])
+            super(parent: parent, name: name, dependencies: dependencies)
+        end
 
         def find_preloader(method)
             method = method.to_s
