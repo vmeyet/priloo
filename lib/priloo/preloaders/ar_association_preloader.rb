@@ -24,7 +24,11 @@ module Priloo
             def preload(ar_list)
                 # Rails does not provide any way to preload an association without immediately
                 # storing the result in the instances.
-                ActiveRecord::Associations::Preloader.new.preload(ar_list.map(&:_preloadable_target), name)
+                #
+                # /!\ if a record is twice in the list to be preloaded, it will be preloaded twice on the association
+                # this is especially a bug with has_many associations where the list have twice the item
+                # we fix it here with `.uniq`
+                ActiveRecord::Associations::Preloader.new.preload(ar_list.map(&:_preloadable_target).uniq, name)
                 ar_list.map(&name)
             end
         end
